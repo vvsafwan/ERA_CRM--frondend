@@ -11,7 +11,7 @@ import { FaUser } from "react-icons/fa";
 import { FaKey } from "react-icons/fa";
 
 // api
-import { adminLogin } from "../../service/api";
+import { adminLogin } from "../../service/adminApi";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
