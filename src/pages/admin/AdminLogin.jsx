@@ -62,10 +62,12 @@ export default function AdminLogin() {
       try {
         const response = await adminLogin(formData);
         console.log(response);
-        if (response.status === 200) {
-          toast.success("Successfully Signed In!");
+        if (response.status === 200 && response?.data?.role === 'admin') {
           localStorage.setItem("adminToken", response?.data?.accessToken);
-          navigate("/admin/user-list");
+          toast.success("Successfully Signed In!");
+          setTimeout(() => {
+            navigate("/admin/user-list");
+          }, 1000);
         }
       } catch (error) {
         if (error.response && error.response.status === 401) {

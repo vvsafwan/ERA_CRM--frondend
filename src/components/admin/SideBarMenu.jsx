@@ -5,7 +5,7 @@ export default function SideBarMenu({ logo, menu, path }) {
     const location = useLocation();
     const isActive = location.pathname === path;
     return (
-        <div className={`py-4 ${isActive ? 'bg-[#FFC62E] rounded-3xl' : ''}`}>
+        <div className={`py-4 ${isActive ? 'bg-gradient-to-b from-[#FEF200] to-[#FFC62E] rounded-3xl' : ''}`}>
             <Link to={path}>
                 <div className='flex mx-10'>
                     {logo}

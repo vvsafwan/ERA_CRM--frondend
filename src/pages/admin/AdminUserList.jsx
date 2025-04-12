@@ -15,7 +15,7 @@ export default function AdminUserList() {
             <SecondaryButton text={'Cancel'} onclick={() => setShowAddForm(false)} textColor={"black"} borderColor={"black"} />
           </div>
           <div className="bg-white shadow-lg shadow-gray-400 rounded-lg overflow-x-auto mt-7">
-            <UserCreateForm />
+            <UserCreateForm setShowAddForm={setShowAddForm} />
           </div>
         </div>
       ) : (

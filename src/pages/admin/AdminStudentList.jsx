@@ -10,7 +10,7 @@ export default function AdminStudentList() {
             {showAddForm ? (
                 <div>
                     <div className='flex justify-between items-center'>
-                        <p className='font-extrabold text-3xl'>Create Student</p>
+                        <p className='font-extrabold text-3xl title-font'>Create Student</p>
                         <SecondaryButton text={'Cancel'} onclick={() => setShowAddForm(false)} textColor={"black"} borderColor={"black"} />
                     </div>
                     <div className="bg-white shadow-lg shadow-gray-400 rounded-lg overflow-x-auto mt-7">
@@ -20,7 +20,7 @@ export default function AdminStudentList() {
             ) : (
                 <div>
                     <div className='flex justify-between items-center'>
-                        <p className='font-extrabold text-3xl'>Students List</p>
+                        <p className='font-extrabold text-3xl title-font'>Students List</p>
                         <SecondaryButton text={'Add New Student'} onclick={() => setShowAddForm(true)} textColor={"black"} borderColor={"black"} />
                     </div>
                     <div className="rounded-lg overflow-x-auto mt-7">

@@ -10,6 +10,7 @@ const Register = lazy(() => import('./pages/user/Register'));
 //Admin components
 const AdminLayout = lazy(() => import('./layouts/AdminLayout'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 const AdminUserList = lazy(() => import('./pages/admin/AdminUserList'));
 const AdminStudentList = lazy(() => import('./pages/admin/AdminStudentList'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -32,6 +33,7 @@ function App() {
           
           <Route element={<AdminLayout />}>
             <Route element={<ProtectedRoute />}>
+              <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route path="/admin/user-list" element={<AdminUserList />} />
               <Route path="/admin/student-list" element={<AdminStudentList />} />
             </Route>
