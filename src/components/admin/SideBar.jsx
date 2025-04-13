@@ -15,7 +15,7 @@ export default function SideBar() {
   const iconColor = '#3d3b3b';
 
   return (
-    <div className='common-font bg-white w-[25vw] ms-5 my-5 rounded-3xl shadow-lg shadow-gray-400 max-h-[95vh]'>
+    <div className='common-font bg-white w-[25vw] ms-5 my-5 rounded-3xl shadow-lg shadow-gray-400'>
       <img src={logo} className='my-10 mx-7' alt="logo" width={180} />
       <div className='mx-5'>
         <SideBarMenu logo={<MdSpaceDashboard size={20} color={location.pathname === '/admin/dashboard' ? 'white' : iconColor} />} menu={"Dashboard"} path={'/admin/dashboard'} />

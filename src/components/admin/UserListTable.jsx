@@ -33,15 +33,15 @@ export default function UserListTable() {
     const fetchUsers = async (page) => {
         try {
 
-          const response = await getUsers(page);
-          const { users, totalPages } = response.data;
-          setUsers(users);
-          setTotalPages(totalPages);
+            const response = await getUsers(page);
+            const { users, totalPages } = response.data;
+            setUsers(users);
+            setTotalPages(totalPages);
 
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-      };
+    };
 
     return (
         <div className="w-full">
@@ -66,7 +66,7 @@ export default function UserListTable() {
                                 key={index}
                                 className="flex justify-around items-center bg-white ps-10 py-4 rounded-xl shadow-sm border border-gray-200"
                             >
-                                <div className="text-sm w-[5%] font-semibold">{ index + 1 + (9 * (currentPage - 1)) }</div>
+                                <div className="text-sm w-[5%] font-semibold">{index + 1 + (9 * (currentPage - 1))}</div>
                                 <div className="text-md w-[14%] text-[#ffc62e] font-extrabold">{user.firstName}</div>
                                 <div className="text-sm w-[14%] font-bold">{user.lastName}</div>
                                 <div className="text-sm w-[20%] text-gray-500">{user.email}</div>

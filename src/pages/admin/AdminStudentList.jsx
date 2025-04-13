@@ -14,7 +14,7 @@ export default function AdminStudentList() {
                         <SecondaryButton text={'Cancel'} onclick={() => setShowAddForm(false)} textColor={"black"} borderColor={"black"} />
                     </div>
                     <div className="bg-white shadow-lg shadow-gray-400 rounded-lg overflow-x-auto mt-7">
-                        <StudentCreateForm />
+                        <StudentCreateForm setShowAddForm={setShowAddForm} />
                     </div>
                 </div>
             ) : (
