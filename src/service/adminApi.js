@@ -25,3 +25,8 @@ export const getStudents = async (page) => {
     return response;
 } 
 
+export const getStudent = async (id) => {
+    const response = await adminApi.get(`/admin/student?id=${id}`)
+    return response;    
+}
+

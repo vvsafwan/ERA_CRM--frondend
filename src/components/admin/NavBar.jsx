@@ -7,7 +7,11 @@ import { FaBell } from "react-icons/fa";
 export default function NavBar() {
     return (
         <>
-            <div className='py-2 px-10 m-5 flex justify-end items-center bg-black rounded-3xl shadow-lg shadow-gray-400'>
+            <div className='py-2 px-10 m-5 flex justify-between items-center bg-black rounded-3xl shadow-lg shadow-gray-400'>
+                <div>
+                    <p className='text-white text-xl font-medium'>Welcome back Admin!</p>
+                </div>
+                <div className='flex items-center'>
                 <div className='me-10'>
                     <FaBell size={20} color='white' />
                 </div>
@@ -19,6 +23,7 @@ export default function NavBar() {
                     <div className='ms-10'>
                         <IoIosArrowDown size={20} color='white' />
                     </div>
+                </div>
                 </div>
             </div>
         </>

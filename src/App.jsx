@@ -13,6 +13,7 @@ const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 const AdminUserList = lazy(() => import('./pages/admin/AdminUserList'));
 const AdminStudentList = lazy(() => import('./pages/admin/AdminStudentList'));
+const AdminStudentProfile = lazy(() => import('./pages/admin/AdminStudentProfile'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route path="/admin/user-list" element={<AdminUserList />} />
               <Route path="/admin/student-list" element={<AdminStudentList />} />
+              <Route path="/admin/student-list/:id" element={<AdminStudentProfile />} />
             </Route>
           </Route>
 

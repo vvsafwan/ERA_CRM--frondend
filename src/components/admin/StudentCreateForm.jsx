@@ -120,7 +120,7 @@ export default function StudentCreateForm({ setShowAddForm }) {
   return (
     <>
       <form>
-      <Toaster />
+        <Toaster />
         <div className="px-15 pt-15 pb-5">
           <InputDefault
             icon={<FaUser />}
@@ -251,24 +251,30 @@ export default function StudentCreateForm({ setShowAddForm }) {
               <p className="text-red-500 text-sm font-semibold">{formDataError.prefferedCountry}</p>
             </div>
           </div>
-          <InputDefault
-            icon={<RiMiniProgramFill />}
-            label={"Preffered Program"}
-            type={"text"}
-            placeholder={"Enter the Preffered Program"}
-            name={"prefferedProgram"}
-            onchange={handleOnchange}
-          />
-          <p className="text-red-500 text-sm font-semibold">{formDataError.prefferedProgram}</p>
-          <InputDefault
-            icon={<MdEmail />}
-            label={"Email"}
-            type={"text"}
-            placeholder={"Enter the Email"}
-            name={"email"}
-            onchange={handleOnchange}
-          />
-          <p className="text-red-500 text-sm font-semibold">{formDataError.email}</p>
+          <div className="flex">
+            <div className="me-5 w-full">
+              <InputDefault
+                icon={<RiMiniProgramFill />}
+                label={"Preffered Program"}
+                type={"text"}
+                placeholder={"Enter the Preffered Program"}
+                name={"prefferedProgram"}
+                onchange={handleOnchange}
+              />
+              <p className="text-red-500 text-sm font-semibold">{formDataError.prefferedProgram}</p>
+            </div>
+            <div className="w-full">
+              <InputDefault
+                icon={<MdEmail />}
+                label={"Email"}
+                type={"text"}
+                placeholder={"Enter the Email"}
+                name={"email"}
+                onchange={handleOnchange}
+              />
+              <p className="text-red-500 text-sm font-semibold">{formDataError.email}</p>
+            </div>
+          </div>
           <InputDefault
             icon={<FaUserTie />}
             label={"Tele-caller"}
