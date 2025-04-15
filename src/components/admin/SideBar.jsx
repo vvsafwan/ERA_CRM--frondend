@@ -1,11 +1,11 @@
 import React from 'react'
 import logo from '../../assets/sirralogo_crop.jpg'
 import SideBarMenu from './SideBarMenu';
+import { useLocation } from 'react-router-dom';
 
 //icons
 import { MdSpaceDashboard } from "react-icons/md";
 import { ImUserTie } from "react-icons/im";
-import { useLocation } from 'react-router-dom';
 import { PiStudent } from "react-icons/pi";
 
 export default function SideBar() { 

@@ -1,21 +1,21 @@
 import React, { useState } from "react";
+import logo from '../../assets/sirralogo_crop.jpg'
 import toast, { Toaster } from "react-hot-toast";
 
 //components
 import InputDefault from "../../components/InputDefault";
 import PrimaryButton from "../../components/PrimaryButton";
-import SecondaryButton from "../../components/SecondaryButton";
+
+//hooks
+import { useNavigate } from "react-router-dom";
 
 //icons
-import { FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";  
 import { FaKey } from "react-icons/fa";
-
-// api
-import { adminLogin } from "../../service/adminApi";
-import { useNavigate } from "react-router-dom";
+import { userLogin } from "../../service/userApi";
 import { clearAuthTokens } from "../../apiConfig/clearAuthToken";
 
-export default function AdminLogin() {
+export default function UserLogin() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -61,25 +61,19 @@ export default function AdminLogin() {
     );
     if (isFormErrorEmpty && isValid) {
       try {
-        const response = await adminLogin(formData);
+        const response = await userLogin(formData);
         console.log(response);
-        if (response.status === 200 && response?.data?.role === 'admin') {
-          clearAuthTokens("adminToken");
-          localStorage.setItem("adminToken", response?.data?.accessToken);
+        if (response.status === 200 && response?.data?.role === 'user') {
+          clearAuthTokens("userToken");
+          localStorage.setItem("userToken", response?.data?.accessToken);
           toast.success("Successfully Signed In!");
           setTimeout(() => {
-            navigate("/admin/user-list");
+            navigate("/dashboard");
           }, 1000);
         }
       } catch (error) {
-        if (error.response && error.response.status === 400) {
-          toast.error("Email and password are required");
-        } else if (error.response && error.response.status === 401) {
-          toast.error("Email or password is incorrect");
-        } else if (error.response && error.response.status === 404) {
-          toast.error("Admin not found!");
-        } else {
-          toast.error("Something went wrong");
+        if (error.response && (error.response.status === 400 || error.response.status === 401 || error.response.status === 403 ||  error.response.status === 404)) {
+          toast.error(error?.response?.data?.message || "Something went wrong");
         }
       }
     }
@@ -88,16 +82,19 @@ export default function AdminLogin() {
   return (
     <div className="common-font w-screen min-h-screen max-h-auto bg-[#f2f2f2] flex flex-col justify-center items-center">
       <Toaster />
-      <div className="md:w-[70vw] bg-white md:flex rounded-3xl shadow-gray-300 shadow">
+      <div className="md:w-[70vw] bg-white md:flex shadow-gray-300 shadow">
+      <div className="md:w-[50vw] bg-gradient-to-b from-[#FEF200] to-[#FFC62E] flex flex-col justify-center items-center px-10 py-20">
+          <img src={logo} alt="Sirra-logo" />
+        </div>
         <div className="md:w-[50vw] py-20">
           <form>
             <div className="flex flex-col justify-center items-center">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                Admin Login
+                Tele-caller Login
               </h1>
               <p className="pb-5 text-[#FFC62E]">
                 <small>
-                  <b>This is the portal for Admin to Login</b>
+                  <b>This is the portal for tele-caller to Login</b>
                 </small>
               </p>
               <div className="w-[70%]">
@@ -129,20 +126,6 @@ export default function AdminLogin() {
               </div>
             </div>
           </form>
-        </div>
-        <div className="md:w-[50vw] bg-gradient-to-b from-[#FEF200] to-[#FFC62E] flex flex-col justify-center items-center rounded-3xl px-10 py-20">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl text-white font-extrabold">
-            Hello, Tele-Caller!
-          </h1>
-          <p className="pb-5 text-white text-center">
-            If you are a tele-caller, Click the button
-          </p>
-          <SecondaryButton
-            text={"Sign Up"}
-            onclick={() => navigate("/register")}
-            textColor={'white'}
-            borderColor={'white'}
-          />
         </div>
       </div>
     </div>

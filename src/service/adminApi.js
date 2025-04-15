@@ -1,4 +1,4 @@
-import adminApi from "../apiConfig/adminApiConfig";
+import { adminApi } from "../apiConfig/axiosInstance";
 
 export const adminLogin = async (payload) => {
     const response = await adminApi.post("/admin/login", payload);
