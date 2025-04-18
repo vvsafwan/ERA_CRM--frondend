@@ -62,13 +62,12 @@ export default function UserLogin() {
     if (isFormErrorEmpty && isValid) {
       try {
         const response = await userLogin(formData);
-        console.log(response);
         if (response.status === 200 && response?.data?.role === 'user') {
           clearAuthTokens("userToken");
           localStorage.setItem("userToken", response?.data?.accessToken);
           toast.success("Successfully Signed In!");
           setTimeout(() => {
-            navigate("/dashboard");
+            navigate("/user/dashboard");
           }, 1000);
         }
       } catch (error) {

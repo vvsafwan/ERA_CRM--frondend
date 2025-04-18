@@ -9,7 +9,7 @@ export default function NavBar() {
         <>
             <div className='py-2 px-10 m-5 flex justify-between items-center bg-black rounded-3xl shadow-lg shadow-gray-400'>
                 <div>
-                    <p className='text-white text-xl font-medium'>Welcome back Admin!</p>
+                    <p className='text-white text-xl font-medium'>Welcome back Tele-Caller!</p>
                 </div>
                 <div className='flex items-center'>
                 <div className='me-10'>

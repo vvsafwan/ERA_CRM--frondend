@@ -62,7 +62,6 @@ export default function AdminLogin() {
     if (isFormErrorEmpty && isValid) {
       try {
         const response = await adminLogin(formData);
-        console.log(response);
         if (response.status === 200 && response?.data?.role === 'admin') {
           clearAuthTokens("adminToken");
           localStorage.setItem("adminToken", response?.data?.accessToken);

@@ -14,7 +14,7 @@ export default function StudentListTable() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchUsers(currentPage)
+        fetchStudents(currentPage)
     }, [currentPage])
 
     const itemRender = (_, type, originalElement) => {
@@ -31,7 +31,7 @@ export default function StudentListTable() {
         setCurrentPage(page);
     };
 
-    const fetchUsers = async (page) => {
+    const fetchStudents = async (page) => {
         setLoading(true);
         try {
             const response = await getStudents(page);

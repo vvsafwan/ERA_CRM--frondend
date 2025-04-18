@@ -20,6 +20,11 @@ export const getUsers = async (page) => {
     return response;
 } 
 
+export const getUsersWithoutPage = async () => {
+    const response = await adminApi.get(`/admin/users/list`)
+    return response;
+} 
+
 export const getStudents = async (page) => {
     const response = await adminApi.get(`/admin/students?page=${page}&pageSize=9`)
     return response;

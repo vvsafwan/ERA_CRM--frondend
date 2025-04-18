@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import profileimg from '../../assets/profile-img.jpg';
-import { getStudent } from '../../service/adminApi';
 import { useParams } from 'react-router-dom';
+import { getStudent } from '../../service/userApi';
 
-export default function AdminStudentProfile() {
+export default function UserStudentProfile() {
 
   const { id } = useParams();
   const [student, setStudent] = useState({});
@@ -18,7 +18,6 @@ export default function AdminStudentProfile() {
     try {
       const response = await getStudent(id);
       setStudent(response.data.student);
-      console.log(response.data.student)
     } catch (error) {
       console.error(error)
     } finally {

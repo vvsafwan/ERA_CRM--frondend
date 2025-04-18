@@ -19,6 +19,8 @@ const AdminStudentProfile = lazy(() => import('./pages/admin/AdminStudentProfile
 //user components
 const UserLayout = lazy(() => import('./layouts/UserLayout'));
 const UserDashboard = lazy(() => import('./pages/user/UserDashboard'));
+const UserStudentList = lazy(() => import('./pages/user/UserStudentList'));
+const UserStudentProfile = lazy(() => import('./pages/user/UserStudentProfile'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
@@ -46,13 +48,15 @@ function App() {
           </Route>
 
           {/* User Routes */}  
-          <Route element={<AnonymousRoute role="user" redirectTo="/dashboard" />}>
-            <Route path="/login" element={<UserLogin />} />
+          <Route element={<AnonymousRoute role="user" redirectTo="/user/dashboard" />}>
+            <Route path="/user/login" element={<UserLogin />} />
           </Route>
 
           <Route element={<UserLayout />}>
             <Route element={<UserProtectedRoute />}>
-              <Route path="/dashboard" element={<UserDashboard />} />
+              <Route path="/user/dashboard" element={<UserDashboard />} />
+              <Route path="/user/student-list" element={<UserStudentList />} />
+              <Route path="/user/student-list/:id" element={<UserStudentProfile />} />
             </Route>
           </Route>
 
